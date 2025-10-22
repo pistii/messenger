@@ -10,7 +10,7 @@ import 'package:signalr_chat/Storage/user_storage.dart';
 import 'package:signalr_netcore/signalr_client.dart';
 import 'package:signalr_chat/utils/Provider.dart' show messagesProvider;
 
-const externalAddr = "http://192.168.0.105:5050/hub";
+const externalAddr = "http://10.0.2.2:5050/hub"; //"http://192.168.0.105:5050/hub";
 
 final transportProtLogger = Logger("SignalR - transport");
 final api = ApiService();

@@ -222,12 +222,9 @@ class MessengerCard extends StatelessWidget {
       elevation: 0,
       color: Colors.transparent,
       child: ListTile(
-    title: Wrap(children: [
-      Row(
-        mainAxisAlignment: content.isAuthor
-            ? MainAxisAlignment.end
-            : MainAxisAlignment.start,
-        children: [
+    title: Wrap(
+      alignment: content.isAuthor ? WrapAlignment.end : WrapAlignment.start,
+      children: [
           Container(
             decoration: BoxDecoration(
               gradient: themeNotifier.getTextBoxHeader(),
@@ -245,9 +242,7 @@ class MessengerCard extends StatelessWidget {
           ),
         ],
       ),
-    ]),
-  
-    )
+      )
     );
   }
 }
@@ -357,10 +352,14 @@ class _MyTextFieldState extends ConsumerState<MyTextField> {
                                 hintStyle: TextStyle(color: Colors.grey.shade700),
                                 border: InputBorder.none,
                                 isDense: true,
-                                
                                 contentPadding: const EdgeInsets.all(8),
                                 fillColor: Color.lerp(Colors.black, Colors.black12, 4) 
                               ),
+                              onSubmitted: (value) {
+                                if (value.isNotEmpty) {
+                                  _sendMessage();
+                                }
+                              },
                               maxLines: 1,
                             ),
                           ),
